@@ -2,10 +2,10 @@ import pygame as pg
 from random import randint
 
 
-width = 720
-height = 600
-# cor = (138, 43, 226)
-cor = (255, 215, 0)
+width = 900
+height = 620
+cor = (138, 43, 226)
+# cor = (255, 215, 0) // golden 
 background = (230, 230, 250)
 
 
@@ -13,7 +13,7 @@ class Rain(object):
     def __init__(self):
         self.x = randint(0, width)
         self.y = randint(-400, -200)
-        self.speed = randint(2, 10)
+        self.speed = randint(2, 20)
         self.size = randint(10, 25)
 
     def fall(self):
@@ -22,7 +22,7 @@ class Rain(object):
         if self.y > height:
             self.ellipse()
             self.y = randint(-400, -200)
-            self.speed = randint(7, 30)
+            self.speed = randint(2, 20)
 
     def show(self):
         pg.draw.line(win, cor, [self.x, self.y], [self.x, self.y + self.size], 1)
@@ -35,7 +35,7 @@ def main():
     drops = []
     clock = pg.time.Clock()
 
-    for _ in range(400):
+    for _ in range(600):
         drop = Rain()
         drops.append(drop)
 
